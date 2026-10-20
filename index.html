@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Anurag Srivastava | Personal Portfolio</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="chatbot.css">
   </head>
   <body>
     <header class="hero">
@@ -76,10 +77,55 @@
       </section>
     </main>
 
+    <section id="weather-section" class="weather-section"> 
+      <h2>Live Weather Checker</h2> 
+      <p>Enter a city to check its current weather.</p> 
+      <div class="weather-controls"> 
+      <input id="cityInput" type="text" placeholder="Enter city (e.g., Jaipur)" /> 
+      <button id="weatherButton" type="button">Get Weather</button> 
+      </div> 
+      <p id="weatherResult" aria-live="polite">Enter a city and click Get Weather.</p> 
+      </section> 
+
+    <section id="aiChatSection" class="ai-chat">
+      <h2>Ask My AI Assistant</h2>
+    
+      <p>
+        Ask questions about this portfolio,
+        projects, and technologies.
+      </p>
+    
+      <div
+        id="chatMessages"
+        aria-live="polite"
+      ></div>
+    
+      <div class="chat-controls">
+        <input
+          type="text"
+          id="userInput"
+          placeholder="Ask a question..."
+        />
+    
+        <button id="sendButton" type="button">
+          Send
+        </button>
+      </div>
+    
+      <p id="chatStatus" role="status"></p>
+    
+      <p class="chat-note">
+        AI chat is available during the local
+        classroom demonstration only.
+      </p>
+    </section>
+
     <footer>
-      <p>anuragsrivastava2910@gmail.com</p>
+      <p>Email: anuragsrivastava2910@gmail.com</p>
     </footer>
     <button id="themeToggle">Switch to Dark Mode</button>
     <script src="script.js"></script>
+    <script src="config.js"></script>
+    <script src="chatbot.js"></script>
   </body>
 </html>
