@@ -52,15 +52,24 @@ h1 {
     border-radius: 12px;
     padding: 1.5rem 1.6rem;
     margin-bottom: 1.25rem;
-}
+    will-change: transform, box-shadow;
+    transform: translateZ(0);
+    transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  
+  .card:hover {
+    transform: translateY(-4px) translateZ(0);
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.18);
+  }
 
-h2 {
+  h2 {
     margin: 0 0 0.85rem;
     font-size: 1.35rem;
     color: #0f2744;
-    border-bottom: 2px solid #d4af37;
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(to right, #d4af37, rgba(212, 175, 55, 0.15)) 1;
     padding-bottom: 0.4rem;
-}
+  }
 
 p {
     margin: 0 0 0.85rem;
@@ -68,6 +77,38 @@ p {
 
 p:last-child {
     margin-bottom: 0;
+}
+
+.project-search {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin: 0 0 1rem;
+}
+
+.project-search label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #0f2744;
+}
+
+#projectSearch {
+    width: 100%;
+    padding: 0.65rem 0.8rem;
+    border: 1px solid #a9b8c9;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+#noProjectsMessage {
+    margin: 0 0 0.85rem;
+    color: #3d5270;
+    font-style: italic;
+}
+
+.projects-list li.is-hidden {
+    display: none;
 }
 
 .skills-list,
@@ -155,14 +196,16 @@ textarea {
     background-color: #2c2c2c !important;
     border-color: #d4af37 !important;
     color: #ffffff !important;
-}
+  }
 
 /* Ensure text inside standard cards turns bright white in Dark Mode */
 .dark-mode .card h2,
 .dark-mode .card p,
 .dark-mode .card li,
 .dark-mode .card span,
-.dark-mode .projects-list li p {
+.dark-mode .projects-list li p,
+.dark-mode .project-search label,
+.dark-mode #noProjectsMessage {
     color: #ffffff !important;
 }
 
@@ -208,3 +251,50 @@ textarea {
   @media (max-width: 480px) { 
     .weather-controls { flex-direction: column; } 
   } 
+  /* ===================================================
+   MODERN THEME TOGGLE BUTTON STYLING
+   =================================================== */
+#themeToggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+    background: linear-gradient(135deg, #1e4d8c, #0b1f3a);
+    color: #ffffff;
+    border: 1.5px solid #c9a227;
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    outline: none;
+  }
+  
+  #themeToggle:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(201, 162, 39, 0.4);
+    border-color: #e0be4a;
+    background: linear-gradient(135deg, #2a63b0, #16365d);
+  }
+  
+  #themeToggle:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Dark Mode Overrides for Toggle Button */
+  body.dark-mode #themeToggle {
+    background: linear-gradient(135deg, #2c2c2c, #121212);
+    color: #ffffff;
+    border-color: #d4af37;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+  }
+  
+  body.dark-mode #themeToggle:hover {
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+  }

@@ -1,14 +1,32 @@
 console.log("JavaScript connected");
 
-const themeButton = document.getElementById("themeToggle");
-themeButton.addEventListener("click", function () {
-   document.body.classList.toggle("dark-mode");
-   if (document.body.classList.contains("dark-mode")) {
-  themeButton.textContent = "Switch to Light Mode";
-   } else {
-  themeButton.textContent = "Switch to Dark Mode";
-   }
-});
+const themeToggleBtn = document.getElementById("themeToggle");
+
+if (themeToggleBtn) {
+  const iconSpan = themeToggleBtn.querySelector(".theme-icon");
+  const textSpan = themeToggleBtn.querySelector(".theme-text");
+
+  // Set initial icon and text based on current body class
+  const isDarkInitial = document.body.classList.contains("dark-mode");
+  if (iconSpan && textSpan) {
+    iconSpan.textContent = isDarkInitial ? "☀️" : "🌙";
+    textSpan.textContent = isDarkInitial ? "Switch to Light Mode" : "Switch to Dark Mode";
+  }
+
+  themeToggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const isDarkMode = document.body.classList.contains("dark-mode");
+
+    // Save user choice
+    localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+
+    // Switch between Sun and Moon icons dynamically
+    if (iconSpan && textSpan) {
+      iconSpan.textContent = isDarkMode ? "☀️" : "🌙";
+      textSpan.textContent = isDarkMode ? "Switch to Light Mode" : "Switch to Dark Mode";
+    }
+  });
+}
 
 const cityInput = document.getElementById("cityInput"); 
 const weatherButton = document.getElementById("weatherButton"); 
@@ -42,3 +60,25 @@ async function getWeather() {
       ? "Network error. Check your internet connection." 
       : error.message; 
     console.error("Weather error:", error); }}
+
+const projectSearch = document.getElementById("projectSearch");
+const projectItems = document.querySelectorAll("#projects .projects-list > li");
+const noProjectsMessage = document.getElementById("noProjectsMessage");
+
+function filterProjects() {
+  const query = projectSearch.value.trim().toLowerCase();
+  let matchCount = 0;
+
+  projectItems.forEach(function (item) {
+    const searchableText = item.textContent.toLowerCase();
+    const isMatch = searchableText.includes(query);
+    item.classList.toggle("is-hidden", !isMatch);
+    if (isMatch) {
+      matchCount += 1;
+    }
+  });
+
+  noProjectsMessage.hidden = matchCount > 0;
+}
+
+projectSearch.addEventListener("input", filterProjects);

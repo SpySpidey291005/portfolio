@@ -54,25 +54,73 @@
 
       <section class="card" id="projects">
         <h2>Projects</h2>
-        <ul class="projects-list">
+        <div class="project-search">
+          <label for="projectSearch">Search projects</label>
+          <input
+            id="projectSearch"
+            type="text"
+            placeholder="Search by title, description, or technology..."
+            autocomplete="off"
+            aria-controls="projectsList"
+          />
+        </div>
+        <p id="noProjectsMessage" hidden>No projects found matching your search.</p>
+        <ul class="projects-list" id="projectsList">
+          
+          <!-- 1. Python Programs Collection -->
           <li>
-            <a href="https://PLACEHOLDER-project-one.example.com">
-              PLACEHOLDER: Project One Title
-            </a>
-            <p>PLACEHOLDER: Brief description of project one.</p>
+            <h3>Python Programs Collection</h3>
+            <p><strong>Description:</strong> A collection of fundamental Python algorithms including implementations for factorial calculation, Fibonacci series generation, and data structure to dictionary conversion.</p>
+            <p><strong>Technologies Used:</strong> Python</p>
+            <div class="project-links">
+              <a href="https://github.com/SpySpidey291005/PYTHON_BASICS01FAC_25BCON2547" target="_blank" rel="noopener noreferrer">GitHub: Factorial</a> | 
+              <a href="https://github.com/SpySpidey291005/PYTHON_BASICS02FIB_25BCON2547" target="_blank" rel="noopener noreferrer">GitHub: Fibonacci</a> | 
+              <a href="https://github.com/SpySpidey291005/PYTHON_BASICS03STRUCT_25BCON2547" target="_blank" rel="noopener noreferrer">GitHub: Structure to Dict</a>
+            </div>
           </li>
+
+          <!-- 2. Messy Python Code Improvement -->
           <li>
-            <a href="https://PLACEHOLDER-project-two.example.com">
-              PLACEHOLDER: Project Two Title
-            </a>
-            <p>PLACEHOLDER: Brief description of project two.</p>
+            <h3>Messy Python Code Improvement</h3>
+            <p><strong>Description:</strong> Refactored poorly structured and unoptimized Python scripts to improve readability, adherence to PEP 8 standards, and execution efficiency.</p>
+            <p><strong>Technologies Used:</strong> Python, Code Refactoring</p>
+            <div class="project-links">
+              <a href="https://github.com/SpySpidey291005/messy_python_code_improvement" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+            </div>
           </li>
+
+          <!-- 3. Bug Fixing Using Cursor AI -->
           <li>
-            <a href="https://PLACEHOLDER-project-three.example.com">
-              PLACEHOLDER: Project Three Title
-            </a>
-            <p>PLACEHOLDER: Brief description of project three.</p>
+            <h3>Bug Fixing Using Cursor AI</h3>
+            <p><strong>Description:</strong> Documented debugging sessions and logic error resolution in software codebases utilizing Cursor AI assistance workflows.</p>
+            <p><strong>Technologies Used:</strong> Python, Cursor AI, Debugging</p>
+            <div class="project-links">
+              <a href="https://github.com/SpySpidey291005/bug_fixing_using_cursor_AI" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+            </div>
           </li>
+
+          <!-- 4. Interactive Quiz Application -->
+          <li>
+            <h3>Interactive Quiz Application</h3>
+            <p><strong>Description:</strong> A dynamic web-based quiz application featuring real-time score tracking, multiple-choice questions, and responsive design.</p>
+            <p><strong>Technologies Used:</strong> HTML, CSS, JavaScript</p>
+            <div class="project-links">
+              <a href="https://github.com/SpySpidey291005/quiz-app" target="_blank" rel="noopener noreferrer">GitHub Repository</a> | 
+              <a href="https://quiz-app-three-rho-14.vercel.app/" target="_blank" rel="noopener noreferrer">Live Application</a>
+            </div>
+          </li>
+
+          <!-- 5. Book Reading List Application -->
+          <li>
+            <h3>Book Reading List Application</h3>
+            <p><strong>Description:</strong> A utility application allowing users to track their reading progress, add books to a personal reading list, and filter by status.</p>
+            <p><strong>Technologies Used:</strong> HTML, CSS, JavaScript</p>
+            <div class="project-links">
+              <a href="https://github.com/SpySpidey291005/reading-list-app" target="_blank" rel="noopener noreferrer">GitHub Repository</a> | 
+              <a href="https://reading-list-app-eight.vercel.app/" target="_blank" rel="noopener noreferrer">Live Application</a>
+            </div>
+          </li>
+
         </ul>
       </section>
     </main>
@@ -120,10 +168,34 @@
       </p>
     </section>
 
-    <footer>
-      <p>Email: anuragsrivastava2910@gmail.com</p>
-    </footer>
-    <button id="themeToggle">Switch to Dark Mode</button>
+<!-- Contact Section -->
+<section class="card" id="contact">
+  <h2>Contact</h2>
+  <p>Got a project inquiry, need technical help, or just want to connect? My inbox is always open!</p>
+  
+  <ul class="contact-list" style="list-style: none; padding: 0; line-height: 2;">
+    <li>
+      <strong>Email:</strong> 
+      <a href="mailto:anuragsrivastava2910@gmail.com">anuragsrivastava2910@gmail.com</a>
+    </li>
+    <li>
+      <strong>LinkedIn:</strong> 
+      <a href="https://www.linkedin.com/feed/" target="_blank" rel="noopener noreferrer">Anurag Srivastava</a>
+    </li>
+    <li>
+      <strong>GitHub:</strong> 
+      <a href="https://github.com/" target="_blank" rel="noopener noreferrer">github.com/SpySpidey291005</a>
+    </li>
+  </ul>
+</section>
+
+<footer style="text-align: center; padding: 20px 0;">
+  <p>&copy; 2026 Anurag Srivastava. All rights reserved.</p>
+</footer>
+<button id="themeToggle" aria-label="Toggle theme">
+  <span class="theme-icon">🌙</span>
+  <span class="theme-text">Switch to Dark Mode</span>
+</button>
     <script src="script.js"></script>
     <script src="config.js"></script>
     <script src="chatbot.js"></script>
